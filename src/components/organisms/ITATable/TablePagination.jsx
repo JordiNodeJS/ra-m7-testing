@@ -1,8 +1,7 @@
-import { useContext } from 'react'
 import styled from 'styled-components'
 import { colors, FlexBox } from '../../../styles'
 import { Icon, Text } from '../../atoms'
-import { TableContext } from './store/context'
+import { useTable } from './store/context'
 import { Actions } from './store/reducer'
 
 const TablePaginationStyled = styled(FlexBox)`
@@ -29,7 +28,9 @@ const TablePaginationStyled = styled(FlexBox)`
 `
 
 function TablePagination() {
-  const { state, dispatch } = useContext(TableContext)
+  // const { state, dispatch } = useContext(TableContext)
+  const { state, dispatch } = useTable()
+
   const { rowsPerPage, data, currentPage } = state
   const totalRows = data.length
   const totalPages = Math.ceil(totalRows / rowsPerPage)

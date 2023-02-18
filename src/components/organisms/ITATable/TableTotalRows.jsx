@@ -1,8 +1,8 @@
-import { useCallback, useContext } from 'react'
+import { useCallback } from 'react'
 import styled from 'styled-components'
 import { Text } from '../../atoms'
 import { SelectGroup } from '../../molecules'
-import { TableContext } from './store/context'
+import { useTable } from './store/context'
 import { Actions } from './store/reducer'
 
 const TableTotalRowsStyled = styled.div`
@@ -22,7 +22,9 @@ const TableTotalRowsStyled = styled.div`
 `
 
 function TableTotalRows() {
-  const { state, dispatch } = useContext(TableContext)
+  // const { state, dispatch } = useContext(TableContext)
+  const { state, dispatch } = useTable()
+
   const { rowsPerPage } = state
 
   const handleChange = useCallback(
