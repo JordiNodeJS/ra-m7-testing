@@ -1,13 +1,14 @@
-import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { SortIcon } from './icons'
-import { TableContext } from './store/context'
+import {  useTable } from './store/context'
 import { TableCell } from './styles'
 
 const TableHeaderStyled = styled.thead``
 
 function TableHeader() {
-  const { state } = useContext(TableContext)
+  // const { state } = useContext(TableContext)
+  const { state } = useTable()
+
   const { columns } = state
   return (
     <TableHeaderStyled>

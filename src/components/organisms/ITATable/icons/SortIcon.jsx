@@ -1,10 +1,10 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 import { Triangle } from '../../../atoms'
 import { colors, hexToRGBA } from '../../../../styles'
 import { IconHeaderStyled } from '../styles'
-import { TableContext } from '../store/context'
+import { useTable } from '../store/context'
 import { Actions } from '../store/reducer'
 
 const clearDarkBlue = hexToRGBA(colors.darkBlue, 0.2)
@@ -36,7 +36,9 @@ const SortIconStyled = styled(IconHeaderStyled)`
 `
 
 function SortIcon({ colId }) {
-  const { state, dispatch } = useContext(TableContext)
+  // const { state, dispatch } = useContext(TableContext)
+  const { state, dispatch } = useTable()
+
   const selectedCol = state.columns.find((col) => col.id === colId)
   const upColor = useMemo(
     () => getColor('up', selectedCol.isSorted, selectedCol.sortOrder),

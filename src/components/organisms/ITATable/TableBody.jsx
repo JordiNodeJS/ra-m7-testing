@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
-import { TableContext } from './store/context'
+import { useTable } from './store/context'
 import { TableCell } from './styles'
 
 function TableBody() {
-  const { state } = useContext(TableContext)
+  // const { state } = useContext(TableContext)
+  const { state } = useTable()
+
   const { data, columns, rowsPerPage, currentPage } = state
   return (
     <tbody>

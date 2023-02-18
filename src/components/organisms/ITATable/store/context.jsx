@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { createContext, useMemo, useReducer } from 'react'
 import { initialState, tableReducer } from './reducer'
 
@@ -8,3 +9,6 @@ export default function TableProvider({ children }) {
   const value = useMemo(() => ({ state, dispatch }), [state])
   return <TableContext.Provider value={value}>{children}</TableContext.Provider>
 }
+
+// custom hook for useContext(TableContext)
+export const useTable = () => useContext(TableContext)
